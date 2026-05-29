@@ -1,19 +1,30 @@
 {
   "name": "@repo/db",
   "version": "1.0.0",
-  "main": "index.js",
-  "exports":
-  {
-    "./client": ".src/index.ts"
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "exports": {
+    "./client": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js",
+      "default": "./dist/src/index.js"
+    }
   },
   "keywords": [],
   "author": "",
-  "devDependencies": {
-    "@repo/typescript-config": "workspace:*"
-  },
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "dotenv": "^16.6.1",
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/pg": "^8.15.4",
     "prisma": "^7.5.0"
   }
 }
